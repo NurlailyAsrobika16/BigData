@@ -1,9 +1,8 @@
 # BigData
 
 ## Accumulator
-<img src ="https://user-images.githubusercontent.com/72254185/230758657-257a1d23-86ea-433c-ad99-5ff1cb938e6e.jpg" width="600px">                                 <br>
-       
-    Kode program di atas menggunakan Spark's accumulator untuk menjumlahkan nilai-nilai dalam RDD (Resilient Distributed Datasets) dan mengeluarkan hasil           penjumlahannya. Berikut adalah penjelasan baris per baris kode program tersebut:
+<img src ="https://user-images.githubusercontent.com/72254185/230758657-257a1d23-86ea-433c-ad99-5ff1cb938e6e.jpg" width="600px"><br>      
+Kode program di atas menggunakan Spark's accumulator untuk menjumlahkan nilai-nilai dalam RDD (Resilient Distributed Datasets) dan mengeluarkan hasil   penjumlahannya. Berikut adalah penjelasan baris per baris kode program tersebut:
 
     myaccum = sc.accumulator(0): Membuat objek accumulator dengan nama myaccum dan nilai awal 0 menggunakan fungsi sc.accumulator(0).
     myrdd = sc.parallelize(range(1,100)): Membuat RDD myrdd dengan nilai dari 1 hingga 99 menggunakan fungsi sc.parallelize(range(1,100)).
