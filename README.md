@@ -1,13 +1,27 @@
 # BigData
 
 ## Accumulator
-<img src ="https://user-images.githubusercontent.com/72254185/230758657-257a1d23-86ea-433c-ad99-5ff1cb938e6e.jpg" width="600px">    
-Kode program di atas menggunakan Spark's accumulator untuk menjumlahkan nilai-nilai dalam RDD (Resilient Distributed Datasets) dan mengeluarkan hasil   penjumlahannya. Berikut adalah penjelasan baris per baris kode program tersebut:
-myaccum = sc.accumulator(0): Membuat objek accumulator dengan nama myaccum dan nilai awal 0 menggunakan fungsi sc.accumulator(0).
-myrdd = sc.parallelize(range(1,100)): Membuat RDD myrdd dengan nilai dari 1 hingga 99 menggunakan fungsi sc.parallelize(range(1,100)).
-def add_to_accum(value, accum) : Mendefinisikan sebuah fungsi bernama add_to_accum yang mengambil dua argumen: value (nilai dari RDD) dan accum                 (accumulator). Fungsi ini menambahkan nilai dari value ke dalam accum menggunakan metode add dari accumulator.
-myrdd.foreach(lambda value: add_to_accum(value, myaccum)): Menerapkan fungsi add_to_accum pada setiap nilai dari RDD myrdd menggunakan metode foreach.        Argumen pertama adalah fungsi yang ingin diterapkan, yaitu lambda value: add_to_accum(value, myaccum) yang akan memanggil fungsi add_to_accum dengan nilai      dari RDD dan accumulator myaccum.
-print(myaccum.value): Mencetak hasil akhir penjumlahan yang disimpan dalam accumulator myaccum menggunakan metode value.   
+<img src="https://user-images.githubusercontent.com/72254185/230758657-257a1d23-86ea-433c-ad99-5ff1cb938e6e.jpg" width="600px">
+
+<p>Kode program di atas menggunakan Spark's accumulator untuk menjumlahkan nilai-nilai dalam RDD (Resilient Distributed Datasets) dan mengeluarkan hasil penjumlahannya. Berikut adalah penjelasan baris per baris kode program tersebut:</p>
+
+<ol>
+  <li>Membuat objek accumulator dengan nama myaccum dan nilai awal 0 menggunakan fungsi sc.accumulator(0):</li>
+  <code>myaccum = sc.accumulator(0)</code>
+  
+  <li>Membuat RDD myrdd dengan nilai dari 1 hingga 99 menggunakan fungsi sc.parallelize(range(1,100)):</li>
+  <code>myrdd = sc.parallelize(range(1,100))</code>
+  
+  <li>Mendefinisikan sebuah fungsi bernama add_to_accum yang mengambil dua argumen: value (nilai dari RDD) dan accum (accumulator). Fungsi ini menambahkan nilai dari value ke dalam accum menggunakan metode add dari accumulator:</li>
+  <code>def add_to_accum(value, accum):</code>
+  <code>    accum.add(value)</code>
+  
+  <li>Menerapkan fungsi add_to_accum pada setiap nilai dari RDD myrdd menggunakan metode foreach. Argumen pertama adalah fungsi yang ingin diterapkan, yaitu lambda value: add_to_accum(value, myaccum) yang akan memanggil fungsi add_to_accum dengan nilai dari RDD dan accumulator myaccum:</li>
+  <code>myrdd.foreach(lambda value: add_to_accum(value, myaccum))</code>
+  
+  <li>Mencetak hasil akhir penjumlahan yang disimpan dalam accumulator myaccum menggunakan metode value:</li>
+  <code>print(myaccum.value)</code>
+</ol>
 
  ## BroadCast
 <img src ="https://user-images.githubusercontent.com/72254185/230758807-f9e43f5d-eca5-4f5d-9079-3c4e43bc3acc.jpg" width="600px">
