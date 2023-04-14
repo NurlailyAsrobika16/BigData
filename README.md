@@ -39,22 +39,42 @@ broadcastVar.value</code></pre>
 <p>Pada baris kedua, sebuah RDD dengan nama <code>myRDD</code> dibuat menggunakan fungsi <code>sc.parallelize()</code>. RDD ini dibuat dari list <code>mylist</code>.</p>
 <p>Pada baris ketiga, RDD <code>myRDD</code> diubah menjadi sebuah Pair RDD dengan nama <code>myPairRDD</code> menggunakan fungsi <code>map()</code>. Fungsi <code>map()</code> diberikan argumen berupa sebuah lambda function yang mengembalikan tuple yang terdiri dari sebuah string dan panjang string tersebut.</p>
 <p>Pada baris keempat, fungsi <code>collect()</code> dipanggil pada <code>myPairRDD</code> untuk mengembalikan semua element dalam Pair RDD dalam bentuk list. Output dari kode tersebut adalah list dari tuple-tuple yang berisi pasangan string dan panjangnya, yaitu:</p>
-python
-Copy code
+
 [('my', 2), ('pair', 4), ('rdd', 3)]
 <p>Pada baris kelima, fungsi <code>keys()</code> dipanggil pada <code>myPairRDD</code> untuk mengembalikan semua kunci (key) dalam Pair RDD. Output dari kode tersebut adalah list dari semua string kunci dalam Pair RDD, yaitu:</p>
-python
-Copy code
+
 ['my', 'pair', 'rdd']
 <p>Pada baris keenam, fungsi <code>values()</code> dipanggil pada <code>myPairRDD</code> untuk mengembalikan semua nilai (value) dalam Pair RDD. Output dari kode tersebut adalah list dari semua nilai integer dalam Pair RDD, yaitu:</p>
-python
-Copy code
+
 [2, 4, 3]
 <p>Dengan menggunakan Pair RDD, kita dapat melakukan operasi map-reduce dan melakukan pengolahan data yang lebih kompleks di atas RDD.</p>
 
 ## WordCount
 <img src ="https://user-images.githubusercontent.com/72254185/230758997-c12b1efb-e167-4ec0-aa5d-95a979750a45.jpg" width="600px">
 <img src ="https://user-images.githubusercontent.com/72254185/230759082-22bb8364-3af3-4da7-a19d-30eea7df2eab.jpg" width="600px">
+
+<pre>
+<code>
+from operator import add
+# mengimpor modul 'add' dari pustaka 'operator'
+
+lines = sc.textFile("C:/Users/Asus X453/bigdata/spark3/bin/README.md")
+# membaca file teks 'README.md' sebagai RDD (Resilient Distributed Dataset)
+
+counts = lines.flatMap(lambda x: x.split(' ')) \
+              .map(lambda x: (x, 1)) \
+              .reduceByKey(add)
+# melakukan pemetaan (mapping) setiap kata dalam RDD 'lines' dengan nilai awal 1, kemudian dilakukan reduksi dengan operasi penjumlahan pada setiap kata yang sama
+
+output = counts.collect()
+# mengumpulkan hasil reduksi ke dalam sebuah variabel 'output'
+
+for (word, count) in output:
+    # melakukan iterasi pada setiap pasangan kata dan jumlah kemunculannya dalam 'output'
+    print("%s: %i" % (word, count))
+    # mencetak kata dan jumlah kemunculannya dalam format string
+</code>
+</pre>
 
 ## UnderstandingRDD
 <img src ="https://user-images.githubusercontent.com/72254185/230759144-c1e2effc-393e-4250-9258-185ddb6e1329.jpg" width="600px">
