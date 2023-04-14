@@ -2,7 +2,8 @@
 
 ## Accumulator
 <img src="https://user-images.githubusercontent.com/72254185/230758657-257a1d23-86ea-433c-ad99-5ff1cb938e6e.jpg" width="600px">
-
+<code>
+<pre>
 <p>Kode program di atas menggunakan Spark's accumulator untuk menjumlahkan nilai-nilai dalam RDD (Resilient Distributed Datasets) dan mengeluarkan hasil penjumlahannya. Berikut adalah penjelasan baris per baris kode program tersebut:</p>
 
 <ol>
@@ -22,7 +23,8 @@
   <li>Mencetak hasil akhir penjumlahan yang disimpan dalam accumulator myaccum menggunakan metode value:</li>
   <code>print(myaccum.value)</code>
 </ol>
-
+</code>
+</pre>
  ## BroadCast
 <img src ="https://user-images.githubusercontent.com/72254185/230758807-f9e43f5d-eca5-4f5d-9079-3c4e43bc3acc.jpg" width="600px">
 <p>Kode program di bawah ini digunakan untuk membuat Broadcast Variable pada lingkungan pemrosesan Big Data menggunakan Apache Spark.</p>
@@ -35,6 +37,8 @@ broadcastVar.value</code></pre>
 
 ## PairRDD
 <img src ="https://user-images.githubusercontent.com/72254185/230758921-3642ba1c-4c9c-434e-bffd-827fbcc2ffb4.jpg" width="600px">
+<pre>
+<code>
 <p>Pada baris pertama, sebuah list dengan nama <code>mylist</code> dibuat. List ini berisi tiga string, yaitu "my", "pair", dan "rdd".</p>
 <p>Pada baris kedua, sebuah RDD dengan nama <code>myRDD</code> dibuat menggunakan fungsi <code>sc.parallelize()</code>. RDD ini dibuat dari list <code>mylist</code>.</p>
 <p>Pada baris ketiga, RDD <code>myRDD</code> diubah menjadi sebuah Pair RDD dengan nama <code>myPairRDD</code> menggunakan fungsi <code>map()</code>. Fungsi <code>map()</code> diberikan argumen berupa sebuah lambda function yang mengembalikan tuple yang terdiri dari sebuah string dan panjang string tersebut.</p>
@@ -48,6 +52,8 @@ broadcastVar.value</code></pre>
 
 [2, 4, 3]
 <p>Dengan menggunakan Pair RDD, kita dapat melakukan operasi map-reduce dan melakukan pengolahan data yang lebih kompleks di atas RDD.</p>
+</code>
+</pre>
 
 ## WordCount
 <img src ="https://user-images.githubusercontent.com/72254185/230758997-c12b1efb-e167-4ec0-aa5d-95a979750a45.jpg" width="600px">
