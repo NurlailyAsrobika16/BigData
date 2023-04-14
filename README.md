@@ -35,11 +35,23 @@ broadcastVar.value</code></pre>
 
 ## PairRDD
 <img src ="https://user-images.githubusercontent.com/72254185/230758921-3642ba1c-4c9c-434e-bffd-827fbcc2ffb4.jpg" width="600px">
-Kode program tersebut adalah kode untuk membuat Broadcast Variable pada lingkungan pemrosesan Big Data menggunakan Apache Spark.
+<p>Pada baris pertama, sebuah list dengan nama <code>mylist</code> dibuat. List ini berisi tiga string, yaitu "my", "pair", dan "rdd".</p>
+<p>Pada baris kedua, sebuah RDD dengan nama <code>myRDD</code> dibuat menggunakan fungsi <code>sc.parallelize()</code>. RDD ini dibuat dari list <code>mylist</code>.</p>
+<p>Pada baris ketiga, RDD <code>myRDD</code> diubah menjadi sebuah Pair RDD dengan nama <code>myPairRDD</code> menggunakan fungsi <code>map()</code>. Fungsi <code>map()</code> diberikan argumen berupa sebuah lambda function yang mengembalikan tuple yang terdiri dari sebuah string dan panjang string tersebut.</p>
+<p>Pada baris keempat, fungsi <code>collect()</code> dipanggil pada <code>myPairRDD</code> untuk mengembalikan semua element dalam Pair RDD dalam bentuk list. Output dari kode tersebut adalah list dari tuple-tuple yang berisi pasangan string dan panjangnya, yaitu:</p>
+python
+Copy code
+[('my', 2), ('pair', 4), ('rdd', 3)]
+<p>Pada baris kelima, fungsi <code>keys()</code> dipanggil pada <code>myPairRDD</code> untuk mengembalikan semua kunci (key) dalam Pair RDD. Output dari kode tersebut adalah list dari semua string kunci dalam Pair RDD, yaitu:</p>
+python
+Copy code
+['my', 'pair', 'rdd']
+<p>Pada baris keenam, fungsi <code>values()</code> dipanggil pada <code>myPairRDD</code> untuk mengembalikan semua nilai (value) dalam Pair RDD. Output dari kode tersebut adalah list dari semua nilai integer dalam Pair RDD, yaitu:</p>
+python
+Copy code
+[2, 4, 3]
+<p>Dengan menggunakan Pair RDD, kita dapat melakukan operasi map-reduce dan melakukan pengolahan data yang lebih kompleks di atas RDD.</p>
 
-Pada baris pertama, sebuah Broadcast Variable dibuat dengan nama broadcastVar dengan menggunakan fungsi sc.broadcast(). Variabel ini berisi nilai list dari angka-angka dari 1 sampai 99.
-
-Pada baris kedua, dilakukan pemanggilan fungsi value() pada variabel broadcastVar. Fungsi ini mengembalikan nilai yang ada dalam Broadcast Variable broadcastVar. Karena Broadcast Variable berisi sebuah list dari angka-angka dari 1 sampai 99, maka output dari fungsi value() adalah list tersebut, yaitu:
 ## WordCount
 <img src ="https://user-images.githubusercontent.com/72254185/230758997-c12b1efb-e167-4ec0-aa5d-95a979750a45.jpg" width="600px">
 <img src ="https://user-images.githubusercontent.com/72254185/230759082-22bb8364-3af3-4da7-a19d-30eea7df2eab.jpg" width="600px">
