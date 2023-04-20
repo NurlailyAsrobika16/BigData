@@ -1,5 +1,57 @@
 # BigData
+1. `sc`: Variabel `sc` adalah objek `SparkContext` yang digunakan untuk menghubungkan aplikasi PySpark dengan cluster Spark. 
 
+   `accumulator`: `accumulator` digunakan untuk mengumpulkan nilai dari seluruh worker di cluster Spark. 
+
+   `parallelize`: `parallelize` digunakan untuk membuat RDD dari koleksi Python.
+
+   `lambda`: `lambda` digunakan untuk membuat fungsi anonim sederhana yang sering digunakan dalam operasi Spark.
+
+   `value`: `value` digunakan untuk mengambil nilai dari `Accumulator`.
+
+2. `broadcast`: `broadcast` digunakan untuk mengirim variabel yang besar (seperti dictionary atau list) ke worker dengan efisien. 
+
+   `list`: `list` digunakan untuk membuat list Python. 
+
+   `range`: `range` digunakan untuk membuat urutan angka yang terdefinisi dengan baik.
+
+3. `textFile`: `textFile` digunakan untuk membaca file teks dan menghasilkan RDD. 
+
+   `filter`: `filter` digunakan untuk menghasilkan RDD baru yang berisi elemen yang memenuhi kondisi tertentu.
+
+   `cache`: `cache` digunakan untuk menyimpan RDD di memori sehingga pengolahan data selanjutnya akan lebih cepat.
+
+   `count`: `count` digunakan untuk menghitung jumlah elemen di dalam RDD.
+
+4. `map`: `map` digunakan untuk mengaplikasikan fungsi pada setiap elemen RDD dan menghasilkan RDD baru. 
+
+   `collect`: `collect` digunakan untuk mengumpulkan semua elemen RDD ke driver program. 
+
+   `len`: `len` digunakan untuk menghitung panjang dari suatu objek.
+
+   `keys`: `keys` digunakan untuk mengembalikan RDD baru yang berisi kunci dari pasangan kunci-nilai di dalam RDD. 
+
+   `values`: `values` digunakan untuk mengembalikan RDD baru yang berisi nilai dari pasangan kunci-nilai di dalam RDD.
+
+5. `defaultParallelism`: `defaultParallelism` digunakan untuk mendapatkan jumlah partisi default di RDD. 
+
+   `getNumPartitions`: `getNumPartitions` digunakan untuk mendapatkan jumlah partisi dalam RDD. 
+
+   `mapPartitionsWithIndex`: `mapPartitionsWithIndex` digunakan untuk mengaplikasikan fungsi pada setiap partisi RDD dengan mempertahankan indeks partisi. 
+
+   `repartition`: `repartition` digunakan untuk mengatur ulang partisi dalam RDD.
+
+   `coalesce`: `coalesce` digunakan untuk mengurangi jumlah partisi dalam RDD tanpa shuffle. 
+
+   `toDebugString`: `toDebugString` digunakan untuk mendapatkan string yang menggambarkan RDD dengan detail.
+
+6. `flatMap`: `flatMap` digunakan untuk menghasilkan RDD baru dengan memetakan setiap elemen menjadi beberapa elemen. 
+
+   `reduceByKey`: `reduceByKey` digunakan untuk menggabungkan nilai dari setiap pasangan kunci-nilai yang sama di dalam RDD. 
+
+   `split`: `split` digunakan untuk memisahkan string menjadi beberapa bagian menggunakan pemisah tertentu.
+   
+   
 ## Accumulator
 <img src="https://user-images.githubusercontent.com/72254185/230758657-257a1d23-86ea-433c-ad99-5ff1cb938e6e.jpg" width="600px">
 Kode program di atas menggunakan Spark's accumulator untuk menjumlahkan nilai-nilai dalam RDD (Resilient Distributed Datasets) dan mengeluarkan hasil penjumlahannya. Berikut adalah penjelasan baris per baris kode program tersebut:
